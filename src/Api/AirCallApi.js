@@ -29,9 +29,10 @@ const refreshtoken = () => {
     })
 }
 
-export const getCalls = () => {
-    api.get('/calls')
-        .then(res => {
-            console.log(res.data);
-        })
+export const getCalls = (offset, limit) => {
+    return api.get(`/calls?offset=${offset}&limit=${limit}`).then(
+        res => {
+            return res.data
+        }
+    )
 }
