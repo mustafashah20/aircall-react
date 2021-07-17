@@ -25,12 +25,20 @@ const refreshtoken = () => {
         localStorage.setItem('access-token', res.data.access_token)
         setTimeout(() => {
             refreshtoken();
-        }, 9 * 60 * 1000)
+        }, 5 * 60 * 1000)
     })
 }
 
 export const getCalls = (offset, limit) => {
     return api.get(`/calls?offset=${offset}&limit=${limit}`).then(
+        res => {
+            return res.data
+        }
+    )
+}
+
+export const getCallById = (id) => {
+    return api.get(`/calls/${id}`).then(
         res => {
             return res.data
         }
