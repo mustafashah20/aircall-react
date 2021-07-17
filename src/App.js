@@ -9,7 +9,7 @@ import * as api from './Api/AirCallApi';
 function App() {
 
   useEffect(() => {
-    if(!localStorage.getItem('access-token')){
+    if (!localStorage.getItem('access-token')) {
       api.authenticate();
     }
   }, []);

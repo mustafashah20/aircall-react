@@ -19,14 +19,21 @@ export const authenticate = () => {
     })
 }
 
-const refreshtoken = () => {
+export const quickRefreshToken = () => {
     api.post('/auth/refresh-token',
     ).then(res => {
         localStorage.setItem('access-token', res.data.access_token)
-        setTimeout(() => {
-            refreshtoken();
-        }, 5 * 60 * 1000)
     })
+}
+
+const refreshtoken = () => {
+    setTimeout(() => {
+        api.post('/auth/refresh-token',
+        ).then(res => {
+            localStorage.setItem('access-token', res.data.access_token)
+            refreshtoken();
+        })
+    }, 5 * 60 * 1000)
 }
 
 export const getCalls = (offset, limit) => {

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as api from '../../Api/AirCallApi';
-import { BiArchiveIn } from 'react-icons/bi';
-import { VscCallIncoming, VscCallOutgoing } from 'react-icons/vsc';
-import { FcMissedCall, FcCallback, FcVoicemail } from 'react-icons/fc'
+import CallListItem from '../CallListItem/CallListItem';
 
 
 function CallList() {
@@ -45,13 +43,6 @@ function CallList() {
         );
     }
 
-    const callClickHandler = (id) => {
-        api.getCallById(id).then(
-            data => {
-                console.log(data)
-            }
-        )
-    }
 
     // call_type: "missed"
     // created_at: "2021-07-16T05:36:37.240Z"
@@ -71,44 +62,17 @@ function CallList() {
 
                 <ul className="list-group">
                     {
-                        calls.map((call) => {
-                            if (!call.is_archived) {
-                                return <li className="list-group-item"
+                        calls.map(call =>
+                            (call.is_archived === false) ?
+                                <CallListItem
                                     key={call.id}
-                                    onClick={() => callClickHandler(call.id)}>
-                                    <div className="row align-items-center">
-                                        <div className="col-auto">
-                                            {
-                                                call.call_type === 'missed' &&
-                                                <FcMissedCall className="icon" />
-                                            }
-                                            {
-                                                call.call_type === 'voicemail' &&
-                                                <FcVoicemail className="icon" />
-                                            }
-                                            {
-                                                call.call_type === 'answered' &&
-                                                <FcCallback className="icon" />
-                                            }
-                                        </div>
-                                        <div className="col-10 col-sm-6">
-                                            <h5>{call.from} </h5>
-                                            {
-                                                call.direction === 'inbound' &&
-                                                <VscCallIncoming className="icon-sm" />
-                                            }
-                                            {
-                                                call.direction === 'outbound' &&
-                                                <VscCallOutgoing className="icon-sm" />
-                                            }
-                                        </div>
-                                        <div className="col-1 d-flex justify-content-end ms-auto">
-                                            <BiArchiveIn className="icon" />
-                                        </div>
-                                    </div>
-                                </li>
-                            }
-                        })
+                                    call_id={call.id}
+                                    caller={call.from}
+                                    call_type={call.call_type}
+                                    direction={call.direction}
+                                    created_at={call.created_at}
+                                /> : null
+                        )
                     }
                 </ul>
             }
