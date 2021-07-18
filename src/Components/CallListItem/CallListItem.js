@@ -21,6 +21,14 @@ const CallListItem = ({ call_type, direction, created_at, caller, call_id }) => 
         )
     }
 
+    const archiveClickHandler = (call_id) => {
+        api.archiveCall(call_id).then(
+            data => {
+                console.log(data);
+            }
+        )
+    }
+
     return (
         <li className="list-group-item" onClick={() => callClickHandler(call_id)}>
             <div className="row align-items-center">
@@ -51,7 +59,11 @@ const CallListItem = ({ call_type, direction, created_at, caller, call_id }) => 
                     <span className="ms-2">{moment(created_at).format("hh:mm a")}</span>
                 </div>
                 <div className="col-1 d-flex justify-content-end ms-auto">
-                    <BiArchiveIn className="icon" />
+                    <BiArchiveIn className="icon"
+                        onClick={(event) => {
+                            archiveClickHandler(call_id);
+                            event.stopPropagation();
+                        }} />
                 </div>
             </div>
 

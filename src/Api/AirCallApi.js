@@ -51,3 +51,11 @@ export const getCallById = (id) => {
         }
     )
 }
+
+export const archiveCall = (id) => {
+    return api.put(`/calls/${id}/archive`).then(
+        res => {
+            return res.data
+        }
+    )
+}

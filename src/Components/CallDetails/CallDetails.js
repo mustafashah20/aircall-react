@@ -14,6 +14,10 @@ const CallDetails = () => {
         setCall(location.state.call);
     }, [location]);
 
+    useEffect(() => {
+        console.log(call);
+    }, [call]);
+
     const backClickHandler = () => {
         history.replace('/');
     }
