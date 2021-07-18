@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import CallList from './Components/CallList/CallList';
 import * as api from './Api/AirCallApi';
+import CallDetails from './Components/CallDetails/CallDetails';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={CallList} />
+            <Route exact path="/calldeatils" component={CallDetails} />
           </Switch>
         </BrowserRouter>
       </div>

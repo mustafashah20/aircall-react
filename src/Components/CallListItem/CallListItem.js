@@ -1,16 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { BiArchiveIn } from 'react-icons/bi';
 import { VscCallIncoming, VscCallOutgoing } from 'react-icons/vsc';
 import { FcMissedCall, FcCallback, FcVoicemail } from 'react-icons/fc'
 import moment from 'moment';
 import * as api from '../../Api/AirCallApi';
 
-function CallListItem({ call_type, direction, created_at, caller, call_id }) {
+const CallListItem = ({ call_type, direction, created_at, caller, call_id }) => {
+
+    const history = useHistory();
 
     const callClickHandler = (id) => {
         api.getCallById(id).then(
             data => {
-                console.log(data)
+                history.push({
+                    pathname: '/calldeatils',
+                    state: { call: data }
+                })
             }
         )
     }

@@ -1,13 +1,7 @@
 import React from 'react';
 import { SiAircall } from 'react-icons/si';
-import { quickRefreshToken } from '../../Api/AirCallApi';
-import * as api from '../../Api/AirCallApi';
 
-function navbar() {
-
-    const refreshToken = () => {
-        api.quickRefreshToken();
-    }
+const navbar = () => {
 
     return (
         <div>
