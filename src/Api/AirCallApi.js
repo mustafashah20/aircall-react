@@ -33,7 +33,7 @@ const refreshtoken = () => {
             localStorage.setItem('access-token', res.data.access_token)
             refreshtoken();
         })
-    }, 5 * 60 * 1000)
+    }, 9 * 60 * 1000)
 }
 
 export const getCalls = (offset, limit) => {

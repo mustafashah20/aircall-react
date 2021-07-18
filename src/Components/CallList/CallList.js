@@ -43,18 +43,6 @@ function CallList() {
         );
     }
 
-
-    // call_type: "missed"
-    // created_at: "2021-07-16T05:36:37.240Z"
-    // direction: "outbound"
-    // duration: 26105
-    // from: "+33127661250"
-    // id: "205191c4-fae5-4baa-9bc6-72e5f943d08f"
-    // is_archived: false
-    // notes: [{ … }]
-    // to: "+33175493389"
-    // via: "+33159746475"
-
     return (
         <div>
             {

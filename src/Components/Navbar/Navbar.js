@@ -8,7 +8,7 @@ const navbar = () => {
             <nav className="navbar navbar-dark bg-dark">
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col ms-3 me-2">
+                        <div className="col pe-0">
                             <SiAircall className="app-logo" />
                         </div>
                         <div className="col">

@@ -11,8 +11,9 @@ function App() {
 
   useEffect(() => {
     if (!localStorage.getItem('access-token')) {
-      api.authenticate();
+      
     }
+    api.authenticate();
   }, []);
 
 

@@ -1,8 +1,4 @@
 
-.col {
-    padding: 0 !important;
-    margin: 0 !important;
-}
 
 .app-logo {
     font-size: 20px;
@@ -15,4 +11,29 @@
 
 .icon-sm {
     font-size: 15px;
+}
+
+.heading {
+    text-transform: capitalize;
+}
+
+.back-icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.back-icon:hover {
+    margin-right: 10px;
+}
+
+
+.back-text {
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.back-text:hover {
+    padding-left: 10px;
 }
