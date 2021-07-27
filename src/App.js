@@ -10,10 +10,7 @@ import CallDetails from './Components/CallDetails/CallDetails';
 function App() {
 
   useEffect(() => {
-    if (!localStorage.getItem('access-token')) {
-      api.authenticate();
-    }
-
+    api.authenticate();
   }, []);
 
 

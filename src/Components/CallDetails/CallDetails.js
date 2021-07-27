@@ -22,18 +22,6 @@ const CallDetails = () => {
         history.replace('/');
     }
 
-
-    // call_type: "answered"
-    // created_at: "2021-07-17T08:18:53.980Z"
-    // direction: "outbound"
-    // duration: 52967
-    // from: "+33177946325"
-    // id: "e01aeb29-2f7a-4e3e-8c27-a8bd11f8979f"
-    // is_archived: false
-    // notes: (2)[{ … }, { … }]
-    // to: "+33174663035"
-    // via: "+33101567774"
-
     return (
         <div>
             <div className="row mb-3">
